@@ -34,16 +34,20 @@ function calculaTempo(tempoObjetivo) {
     minutos %= 60;
     horas %= 24;
     if (tempoFinal >0){
-        return dias + " dias " + horas + " horas " + minutos + " minutos " + segundos + " segundos";
+        return [dias,horas,minutos,segundos];
     } else{
-        return "Prazo Finalizado";
+        return [0,0,0,0];
     }
  
 }
 
 fuction atualizaCronometro(){
+    documents.getElementByID("dias0").textContent = calculaTempo(tempo[0])[0];
+    documents.getElementByID("horas0").textContent = calculaTempo(tempo[0])[1];
+    documents.getElementByID("min0").textContent = calculaTempo(tempo[0])[2];
+    documents.getElementByID("seg0").textContent = calculaTempo(tempo[0])[3];
     for(let i = 0; i < contadores.length; i++){
-    contadores[i].textContent = calculaTempo(tempos[i]);
+            //contadores[i].textContent = calculaTempo(tempos[i]);
     }
 }
 
